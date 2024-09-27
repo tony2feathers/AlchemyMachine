@@ -102,20 +102,23 @@ class NeoPatterns : public Adafruit_NeoPixel
                 Index = 0;
                 if (OnComplete != NULL)
                 {
-                    OnComplete();   // call the completion callback
+                    OnComplete(); // call the completion callback
                 }
             }
         }
         else // Direction == reverse
         {
-            --Index;
-            if (Index <= 0)
+            if (Index == 0)
             {
-                Index = TotalSteps-1;
-                if(OnComplete != NULL)
+                Index = TotalSteps - 1; // Reset to the last pixel in reverse
+                if (OnComplete != NULL)
                 {
                     OnComplete(); // Call the completion callback
                 }
+            }
+            else
+            {
+                --Index; // Decrement after checking
             }
         }
     }
@@ -475,15 +478,21 @@ void FlashUpdate() {
     void AcceleratingSequenceUpdate() {
     // Clear previous state
     fill(0);
-    // Set the pixel color
-    setPixelColor(segmentStart + Index, Color1);   
+    
+    // Set the pixel color based on direction
+    int pixelIndex = (Direction == forward) ? (segmentStart + Index) : (segmentStart + segmentLen - 1 - Index);
+    setPixelColor(pixelIndex, Color1);
+    
     // Show updates
     show();   
-    // Increment for next round
+    
+    // Increment or decrement for next round based on direction
     Increment();
+    
     // Accelerate: decrease interval to a minimum limit
     Interval = max(20, Interval - 5); // Decrease interval, minimum 5ms
-    }
+}
+
 
     // Calculate 50% dimmed version of a color used by scannerUpdate
     uint32_t DimColor(uint32_t color)

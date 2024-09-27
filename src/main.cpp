@@ -546,7 +546,7 @@ void onSolve()
   // Start the light sequences for LS2 and LS4
   LS2.AcceleratingSequence(LS2.Color(255, 0, 0), Strip2Start, Strip2Length, forward);
   LS3.AcceleratingSequence(LS3.Color(128, 0, 128), Strip3Start, Strip3Length, forward);
-  LS4.AcceleratingSequence(LS4.Color(0, 0, 255), Strip4Start, Strip4Length, reverse);
+  LS4.AcceleratingSequence(LS4.Color(0, 0, 255), Strip4Start, Strip4Length, forward);
     
   // Run for 5 seconds (use millis() for non-blocking delay)
   unsigned long startTime = millis();

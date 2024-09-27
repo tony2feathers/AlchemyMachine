@@ -1,5 +1,11 @@
 # Alchemy Machine Puzzle
 
+## UPDATES
+
+### 09/26/2024
+- Fixed errors in lights.h to include AcceleratingSequenceUpdate and Increment Functions.
+- Changed onSolve to use forward direction on LS4 since reverse is unnecessary due to wiring
+
 ## Project Overview
 
 The **Alchemy Machine Puzzle** is a custom-designed puzzle for the **REDACTED** Escape Room game, developed by Two Feathers LLC. This project is built using an ESP32-based NodeMCU-32S microcontroller and includes RFID readers, a laser sensor, NeoPixel light strips, and door locks to create an immersive puzzle experience.

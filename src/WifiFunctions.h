@@ -85,6 +85,7 @@ void wifiSetup() {
 void MQTTsetup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
+  
   client.subscribe(topic);
   reconnectMQTT();
 }

@@ -14,10 +14,10 @@ char ssid[] = SECRET_SSID;    // your network SSID (name)
 char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as key for WEP)
 int status = WL_IDLE_STATUS;  // the WiFi radio's status
 
-const char* mqtt_server = "10.1.10.10"; // Replace with your MQTT broker IP address
-const char* topic = "ToDevice/NameOfMachine"; // Replace with your topic
-const char* hostTopic = "ToHost/NameOfMachine"; // Replace with your topic
-const char* deviceID = "NameOfMachine"; //NameOfMachine
+const char* mqtt_server = "10.1.10.55"; // Replace with your MQTT broker IP address
+const char* topic = "ToDevice/Alchemy"; // Replace with your topic
+const char* hostTopic = "ToHost/Alchemy"; // Replace with your topic
+const char* deviceID = "Alchemy"; //Alchemy
 
 
 WiFiClient espClient;
@@ -85,6 +85,7 @@ void wifiSetup() {
 void MQTTsetup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
+
   client.subscribe(topic);
   reconnectMQTT();
 }

@@ -3,3 +3,10 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+src/esp_secrets.h
+src/WifiFunctions.h
+
+src/arduino_secrets.h
+*.env
+.env
+.env.*
